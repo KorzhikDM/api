@@ -1,79 +1,75 @@
-# api fastcgi
+# API 
 
-Cервис для сбора жалоб и предложений о работе  жилищно-коммунального хозяйства. 
+Простой веб сервис для работы со списком задач
 
 Data types:
 
-* *COMMENT_ABOUT_WORK*:
+* *TO DO LIST* :
     
 ```
     
 {
         
-	  "Id": "GUID",
 
-    "CommentDate": "YYYY-MM-DD HH:MM:SS",
-    
-    "City": "string",
-    
-    "Comment": "string"
+    id: уникальный идентификатор задачи. Тип Numeric.
+    title: Краткое описание задачи. Тип String.
+    description: подробное описание задачи. Тип Text.
+    done: отметка о выполнении. Тип Boolean.
+
     
 }
 ```
-* *CITY_COMMENT_REPORT*:
 
-```
-    
-{
-        
-	"City": "string",
-
-   "Comment1": "string",
-   
-   "Comment2": "string",
-   
-   "Comment3": "string",
-   ...
-    
-}
     
 ```
 ## Urls
-### Create Comment
+### Get list of tasks
 * **Request**
-	* **URL:** `/comments/(user_id)`
+	* **URL:** `/tasks`
+	* **Method:** `GET`
+	* **Body:** *empty*
+* **Response**
+	* **Code:** `200 HTTP_OK`
+	* **Body:** `TO DO LIST`
+	
+### Get list
+* **Request**
+	* **URL:** `/tasks/task_id`
+	* **Method:** `GET`
+	* **Body:** *empty*
+* **Response**
+  * **Content-Type:** `application/json`
+	* **Code:** `201 HTTP_OK`
+	* **Body:** `TO DO LIST`
+	
+### Create new task
+* **Request**
+	* **URL:** `/tasks`
 	* **Method:** `POST`
-	* **Body:** *COMMENT_ABOUT_WORK*
-* **Response**
-	* **Code:** `201 HTTP_CREATED`
-	* **Body:** user_id , comment_id
-	
-### Edit Comment
-* **Request**
-	* **URL:** `/comments/(user_id)/(Comment_id)`
-	* **Method:** `PUT`
-	* **Body:** *COMMENT_ABOUT_WORK*
+	* **Body:** `TO DO LIST`
 * **Response**
   * **Content-Type:** `application/json`
 	* **Code:** `201 HTTP_CREATED`, `404 HTTP_NOT_FOUND`, `403 HTTP_FORBIDDEN`
-	* **Body:** empty
+	* **Body:** `empty`
 	
-### Delete Comment
-* **Request**
-	* **URL:** `/comments/(user_id)/(Comment_id)`
-	* **Method:** `delete`
-* **Response**
-  * **Content-Type:** `application/json`
-	* **Code:** `201 HTTP_CREATED`, `404 HTTP_NOT_FOUND`, `403 HTTP_FORBIDDEN`
-	* **Body:** empty
-	
-### Get comment reports sorted by city
+### Update task
 * **REQUEST**
-    * **URL:** `/comments/reports/city/(city)`
-    * **Method:** `GET`
+    * **URL:** `/tasks/task_id`
+    * **Method:** `PUT`
+    * **Body:** `TO DO LIST`
 * **RESPONSE**
     * **Content-Type:** `application/json`
     * **Code:** `200 HTTP_OK`, `404 HTTP_NOT_FOUND`, `403 HTTP_FORBIDDEN`
-    * **Body:** *CITY_COMMENT_REPORT*
+    * **Body:** `empty`
+    
+### Delete task
+* **REQUEST**
+    * **URL:** `/tasks/task_id`
+    * **Method:** `DELETE`
+* **RESPONSE**
+    * **Content-Type:** `application/json`
+    * **Code:** `200 HTTP_OK`, `404 HTTP_NOT_FOUND`, `403 HTTP_FORBIDDEN`
+
+    
 	
   
