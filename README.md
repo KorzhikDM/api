@@ -21,7 +21,7 @@ Data types:
 ```
 
     
-```
+
 ## Urls
 ### Get list of tasks
 * **Request**
@@ -39,7 +39,7 @@ Data types:
 	* **Body:** *empty*
 * **Response**
   * **Content-Type:** `application/json`
-	* **Code:** `201 HTTP_OK`
+	* **Code:** `200 HTTP_OK`
 	* **Body:** `TO DO LIST`
 	
 ### Create new task
