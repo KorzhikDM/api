@@ -38,7 +38,7 @@ Data types:
 	* **Method:** `GET`
 	* **Body:** *empty*
 * **Response**
-  * **Content-Type:** `application/json`
+        * **Content-Type:** `application/json`
 	* **Code:** `200 HTTP_OK`
 	* **Body:** `TO DO LIST`
 	
@@ -48,7 +48,7 @@ Data types:
 	* **Method:** `POST`
 	* **Body:** `TO DO LIST`
 * **Response**
-  * **Content-Type:** `application/json`
+        * **Content-Type:** `application/json`
 	* **Code:** `201 HTTP_CREATED`, `404 HTTP_NOT_FOUND`, `403 HTTP_FORBIDDEN`
 	* **Body:** `empty`
 	
